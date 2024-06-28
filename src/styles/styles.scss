@@ -1,5 +1,75 @@
+@import url(https://use.typekit.net/wpi6pnz.css);
+@import url(https://use.typekit.net/vxm5ili.css);
+@import url(https://use.typekit.net/ppm1haf.css);
+
 @import '../styles/variables.scss';
 
-body {
-  background: $background-red;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background-color: #f5f5f5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .services-container {
+      .services-container__title {
+        font-family: neo-sans, sans-serif;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 10px;
+        color: #d32f2f;
+      }
+      padding: 20px;
+
+      .service-box {
+        width: 500px;
+
+        .service {
+          background: white;
+          border-radius: 4px;
+          padding: 20px;
+          cursor: pointer;
+          border-left: 4px solid #d32f2f;
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+
+          .service__title {
+            font-family: neo-sans, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+          }
+
+          .service__description {
+            font-family: Lato, sans-serif;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .drop-files {
+      .drop-files__content {
+        width: 500px;
+        border: 1px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 }
