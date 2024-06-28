@@ -10,40 +10,24 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/scripts/main.ts":
-/*!*****************************!*\
-  !*** ./src/scripts/main.ts ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/typescript/mvc/controller.ts":
+/*!******************************************!*\
+  !*** ./src/typescript/mvc/controller.ts ***!
+  \******************************************/
+/***/ (() => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n\n\n\n\n//# sourceURL=webpack://webpack-typescript/./src/scripts/main.ts?");
+eval("\nconsole.log(\"init\");\n\n\n//# sourceURL=webpack://webpack-typescript/./src/typescript/mvc/controller.ts?");
 
 /***/ })
 
 /******/ 	});
-/************************************************************************/
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/scripts/main.ts"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./src/typescript/mvc/controller.ts"]();
 /******/ 	
 /******/ })()
 ;
