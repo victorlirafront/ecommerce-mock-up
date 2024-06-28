@@ -1,1 +1,5 @@
-$color-white: white;
+@import '../styles/variables.scss';
+
+body {
+  background: $background-red;
+}
