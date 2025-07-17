@@ -3,9 +3,7 @@ import { Pool } from 'mysql2/promise';
 
 @Injectable()
 export class ProductsService {
-  constructor(
-    @Inject('MYSQL_POOL') private readonly pool: Pool,
-  ) {}
+  constructor(@Inject('MYSQL_POOL') private readonly pool: Pool) {}
 
   async getProducts(category: string): Promise<any[]> {
     const connection = await this.pool.getConnection();
@@ -83,18 +81,18 @@ export class ProductsService {
 
   async searchPosts(query: string, category: string): Promise<any[]> {
     const connection = await this.pool.getConnection();
-  
-    let sql = 'SELECT * FROM posts WHERE title LIKE ? OR content LIKE ?';
-    const params: any[] = [`%${query}%`, `%${query}%`];
-  
+
+    let sql = 'SELECT * FROM posts WHERE title LIKE ?';
+    const params: any[] = [`%${query}%`];
+
     if (category !== 'all' && category) {
       sql += ' AND category = ?';
       params.push(category);
     }
-  
+
     const [result] = await connection.query(sql, params);
     connection.release();
-  
+
     return result as any[];
   }
 }
