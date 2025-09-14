@@ -3346,7 +3346,7 @@
     tslib "^2.6.1"
     unzipper "^0.10.14"
 
-"@nxrocks/nx-spring-boot@^10.2.6":
+"@nxrocks/nx-spring-boot@10.2.6":
   version "10.2.6"
   resolved "https://registry.npmjs.org/@nxrocks/nx-spring-boot/-/nx-spring-boot-10.2.6.tgz#3c683c709f990335edb269e3f950d8075482e4e7"
   integrity sha512-rBDHBfTT+VoVTZpI2ja1Sjmm6cogfhjp0iYNyVIwrbMMfsJ/BcWHWVrXI53ovlCjD8axE5g4vhDj6tIfPDwzQw==

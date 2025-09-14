@@ -1,0 +1,6 @@
+{
+  "name": "ecom-backend",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "ecom-backend/src",
+  "tags": []
+}
