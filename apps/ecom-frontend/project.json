@@ -2,15 +2,16 @@
   "name": "ecom-frontend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "app",
+  "prefix": "ecom",
   "sourceRoot": "apps/ecom-frontend/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular/build:application",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ecom-frontend",
+        "index": "apps/ecom-frontend/src/index.html",
         "browser": "apps/ecom-frontend/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/ecom-frontend/tsconfig.app.json",
@@ -22,11 +23,9 @@
           }
         ],
         "styles": ["apps/ecom-frontend/src/styles.scss"],
+        "scripts": [],
         "server": "apps/ecom-frontend/src/main.server.ts",
-        "ssr": {
-          "entry": "apps/ecom-frontend/src/server.ts"
-        },
-        "outputMode": "server"
+        "prerender": false
       },
       "configurations": {
         "production": {
@@ -38,23 +37,34 @@
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "4kb",
-              "maximumError": "8kb"
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/ecom-frontend/src/environments/environments.ts",
+              "with": "apps/ecom-frontend/src/environments/environment.production.ts"
+            }
+          ]
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/ecom-frontend/src/environments/environments.ts",
+              "with": "apps/ecom-frontend/src/environments/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "continuous": true,
-      "executor": "@angular/build:dev-server",
+      "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "ecom-frontend:build:production"
@@ -66,7 +76,7 @@
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "@angular/build:extract-i18n",
+      "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
         "buildTarget": "ecom-frontend:build"
       }
@@ -74,11 +84,18 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/ecom-frontend/jest.config.ts"
+      }
+    },
     "serve-static": {
-      "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "ecom-frontend:build",
+        "port": 4200,
         "staticFilePath": "dist/apps/ecom-frontend/browser",
         "spa": true
       }
